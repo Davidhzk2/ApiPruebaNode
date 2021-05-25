@@ -23,7 +23,7 @@ router.post("/registerUser/", async (req, res) =>{
     const result = await user.save();
     
     if(result){
-        const jwtToken = user.generateJWT();
+        const jwtToken =await  user.generateJWT();
         res.status(200).send({jwtToken});
     }else{
         return res.status(400).send("Error al registrar usuario");
