@@ -5,6 +5,7 @@ const moment = require("moment");
 
 const productsSchema = new mongoose.Schema({
     // Propiedad  / valor
+    userId: String,
     name: String,
     description: String,
     imgUrl: String,

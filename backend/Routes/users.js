@@ -22,7 +22,7 @@ router.post("/registerUser/", async (req, res) =>{
         username: req.body.username,
         password: hash,
         phone: req.body.phone
-    })
+    });
     
     // guardar usuario en la coleccion de mongo 
     const result = await user.save();

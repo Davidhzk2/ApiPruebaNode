@@ -3,12 +3,17 @@ const express = require("express");
 const router = express.Router();
 
 const Products = require("../models/products");
+const User = require("../models/users");
+const Auth = require("../middleware/auth");
 
 
 // Registrar producto
-router.post("/registerProduct", async (req,res) => {
-
+router.post("/registerProduct",Auth, async (req,res) => {
+    // buscar el id del usuaurio
+    let user  = await User.findById(req.user._id);
+    // validar usuario
     products = new Products({
+        userId: user._id,
         name: req.body.name,
         description: req.body.description,
         imgUrl: req.body.imgUrl,
@@ -16,14 +21,10 @@ router.post("/registerProduct", async (req,res) => {
         valor: req.body.valor,
     });
 
-    const reuslt =await products.save();
+    const result = await products.save();
 
-    if(reuslt){
-        const jwtToken = products.generateJWT();
-        return res.status(200).send( jwtToken);
-    }else{
-        return res.status(400).send(console.log("No se pudo registrar"));
-    }
+        return res.status(200).send(result);
+   
 });
 
 // exportar controlador
