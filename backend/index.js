@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 
 const User = require("./Routes/users");
 const Product = require("./Routes/products");
+const Auth = require("./Routes/auth");
 
 // variable para el proyecto 
 const app = express();
@@ -13,9 +14,10 @@ app.use(express.json());
 // modulos
 app.use("/api/users/", User);
 app.use("/api/products/", Product);
+app.use("/api/auth/", Auth);
 
 // crear varible del puerto 
-const port  = process.env.PORT || 3001;
+const port  = process.env.PORT || 3002;
 
 // escuchar puerto 
 app.listen(port, () =>

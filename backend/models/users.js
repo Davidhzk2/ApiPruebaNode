@@ -1,18 +1,20 @@
 // importar los modulos  para simular la coeccion 
 const mongoose = require("mongoose");
 const moment = require("moment");
+const jwt = require("jsonwebtoken");
 
 // crear esquema 
 const userSchema = new mongoose.Schema({
     // propiedad y tipo 
     name: String,
     username: String,
+    password: String,
     phone: String,
     date: {type: Date, default: Date.now}
 });
 
 // crear el jwt
-userSchema.methods,generateJWT = function (){
+userSchema.methods.generateJWT = function (){
     return jwt.sign(
     {
         _id: this._id,
