@@ -22,9 +22,19 @@ router.post("/registerProduct",Auth, async (req,res) => {
     });
 
     const result = await products.save();
-
-        return res.status(200).send(result);
+    return res.status(200).send(result);
    
+});
+
+// consultar todos los productos 
+router.get("/listProducts/", Auth, async (req,res)=>{
+    // buscra usuario por id
+    const user = await User.findById(req.user._id);
+    // validar el id
+    if(!user) return res.status(400).send("No se encontro el usuario en el bd");
+    // si si existe traer de la base de datos
+    const products = await Products.find({userId: req.user._id});
+    return res.status(200).send({products});
 });
 
 // exportar controlador
