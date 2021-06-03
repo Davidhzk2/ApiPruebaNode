@@ -5,23 +5,21 @@ const router = express.Router();
 const Products = require("../models/products");
 const User = require("../models/users");
 const Auth = require("../middleware/auth");
+const UserAuth = require("../middleware/user");
 
 
 
 // Registrar producto
-router.post("/registerProduct",Auth, async (req,res) => {
-    // buscar el id del usuaurio
-    let user  = await User.findById(req.user._id);
-    // validar usuario
-    if(!user) return res.status(400).send("No se encontro el usuario en el bd");
+router.post("/registerProduct",Auth, UserAuth, async (req,res) => {
 
     products = new Products({
-        userId: user._id,
+        userId: req.user._id,
         name: req.body.name,
         description: req.body.description,
         imgUrl: req.body.imgUrl,
         category: req.body.category,
         valor: req.body.valor,
+        status: true
     });
 
     const result = await products.save();
@@ -30,21 +28,16 @@ router.post("/registerProduct",Auth, async (req,res) => {
 });
 
 // consultar todos los productos 
-router.get("/listProducts/", Auth, async (req,res)=>{
-    // buscra usuario por id
-    const user = await User.findById(req.user._id);
-    // validar el id
-    if(!user) return res.status(400).send("No se encontro el usuario en el bd");
+router.get("/listProducts/", Auth,UserAuth, async (req,res)=>{
+    
     // si si existe traer de la base de datos
     const products = await Products.find({userId: req.user._id});
     return res.status(200).send({products});
 });
 
 // actualizar los productos
-router.put("/updateProduct/", Auth, async (req, res) =>{
-    // buscar el usuario por id
-    const user = await User.findById(req.user._id);
-    if(!user) return res.status(400).send("no se encontro usuario en la bd");
+router.put("/updateProduct/", Auth, UserAuth, async (req, res) =>{
+  
 
     // buscar y capturar los datos 
     const product = await Products.findByIdAndUpdate(req.body._id ,{
@@ -52,7 +45,8 @@ router.put("/updateProduct/", Auth, async (req, res) =>{
         name: req.body.name,
         description: req.body.description,
         category: req.body.category,
-        valor: req.body.valor
+        valor: req.body.valor,
+        status:true
     });
     // validar el producto
     if(!product) return res.status(400).send("No se pudo editar el producto");
@@ -61,11 +55,8 @@ router.put("/updateProduct/", Auth, async (req, res) =>{
 
 
 // Eliminar producto 
-router.delete("/:_id", Auth, async (req, res) =>{
-    //consultar usuario por id 
-    const user = await User.findById(req.user._id);
-    // validar usuario 
-    if(!user) return res.status(400).send("no se encontro usuario en la bd");
+router.delete("/:_id", Auth,UserAuth, async (req, res) =>{
+
     // buscar y eliminar producto por id
     const product = await Products.findByIdAndDelete(req.params._id);
     // validar producto

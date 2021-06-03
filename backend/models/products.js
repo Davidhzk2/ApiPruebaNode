@@ -11,6 +11,7 @@ const productsSchema = new mongoose.Schema({
     imgUrl: String,
     category: String,
     valor: Number,
+    status: Boolean
 });
 
 // crear modelo de prodcutos
