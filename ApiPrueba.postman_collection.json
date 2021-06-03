@@ -1,0 +1,462 @@
+{
+	"info": {
+		"_postman_id": "13241907-6f94-42f5-b9e2-bee0bab72475",
+		"name": "ApiPrueba",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ROLE",
+			"item": [
+				{
+					"name": "http://localhost:3002/api/role/registerRole",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"USER\",\r\n    \"description\": \"usuario normal de la app\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/api/role/registerRole",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"role",
+								"registerRole"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3002/api/role/registerRole",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Admin\",\r\n    \"description\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/api/role/registerRole",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"role",
+								"registerRole"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3002/api/role/listRole",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3002/api/role/listRole",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"role",
+								"listRole"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AUTH",
+			"item": [
+				{
+					"name": "http://localhost:3002/api/auth/login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFjMDUzNzY4YWMxMDJmZWNhYzI5ODAiLCJuYW1lIjoiZGF2aWQiLCJpYXQiOjE2MjIwNDc5OTB9.CWNETO4HJCjjI3lucZVo-3EZbXy4pPudYZz0qEIHzSs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"manueluser\",\r\n    \"password\":\"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "USER",
+			"item": [
+				{
+					"name": "http://localhost:3001/api/users/registerUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"manuel munoz\",\r\n    \"username\": \"manueluser\",\r\n    \"password\": \"12345\",\r\n    \"phone\": \"23589640\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/api/users/registerUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users",
+								"registerUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3002/api/users/registerUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"\",\r\n    \"username\":\"daviduser\",\r\n    \"password\":\"12345\",\r\n    \"phone\": \"324562\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/api/users/registerUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users",
+								"registerUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3002/api/users/updateUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGI4ZmU0OTdhMDU3ZDA5Mjg2MmViOGMiLCJuYW1lIjoibWFudWVsIG11bm96IiwidXNlcm5hbWUiOiJtYW51ZWx1c2VyIiwicm9sZUlkIjoiNjBiOGVkMzA4NDRiZTg1OGEwNTZlMjgxIiwiaWF0IjoxNjIyNzM3ODc4fQ.xtpI-25fHihFl03uOyfdlQm_zuapAZGPO3y3An1QV2M",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id\":\"60b8fe497a057d092862eb8c\",\r\n    \"name\": \"manuel munoz m\",\r\n    \"username\": \"manueluser\",\r\n    \"password\": \"12345\",\r\n    \"roleId\":\"60b8ed30844be858a056e281\",\r\n    \"phone\": \"23589640\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/api/users/updateUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users",
+								"updateUser"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PRODUCTS",
+			"item": [
+				{
+					"name": "http://localhost:3001/api/products/registerProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGI4ZmU0OTdhMDU3ZDA5Mjg2MmViOGMiLCJuYW1lIjoibWFudWVsIG11bm96IiwidXNlcm5hbWUiOiJtYW51ZWx1c2VyIiwicm9sZUlkIjoiNjBiOGVkMzA4NDRiZTg1OGEwNTZlMjgxIiwiaWF0IjoxNjIyNzM3ODc4fQ.xtpI-25fHihFl03uOyfdlQm_zuapAZGPO3y3An1QV2M",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Portatil lenovo\",\r\n    \"description\": \"portatil lenovo thinkpad\",\r\n    \"imgUrl\": \"url de la img para el producto\",\r\n    \"category\": \"tecnologia\",\r\n    \"valor\": 200\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/api/products/registerProduct",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"products",
+								"registerProduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3002/api/products/listProducts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFmY2Q2ZmJmZjAyZjU4NDAwZDU1MGQiLCJuYW1lIjoiRGF2aWQiLCJ1c2VybmFtZSI6ImRhdmlkdXNlciIsImlhdCI6MTYyMjE0ODgyNn0.ynqon-bW35j9g9z8uwqfXua6UESPhzoprjVppeqRgh4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3002/api/products/listProducts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"products",
+								"listProducts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3002/api/products/updateProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFmY2Q2ZmJmZjAyZjU4NDAwZDU1MGQiLCJuYW1lIjoiRGF2aWQiLCJ1c2VybmFtZSI6ImRhdmlkdXNlciIsImlhdCI6MTYyMjE0ODE2NH0.Xt0Ckf_hxgs-vB-DmLOzi-0ZdZ7OtFxMpSbbTJwvyKA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id\": \"60afcfaabff02f58400d5510\",\r\n    \"name\": \"Mesa Computador\",\r\n    \"description\": \"mesa escritorio para un computador \",\r\n    \"category\": \"muebles y hogar\",\r\n    \"valor\": 100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/api/products/updateProduct",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"products",
+								"updateProduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3002/api/products/60afcfaabff02f58400d5510",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFmY2Q2ZmJmZjAyZjU4NDAwZDU1MGQiLCJuYW1lIjoiRGF2aWQiLCJ1c2VybmFtZSI6ImRhdmlkdXNlciIsImlhdCI6MTYyMjE0ODgyNn0.ynqon-bW35j9g9z8uwqfXua6UESPhzoprjVppeqRgh4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3002/api/products/60afcfaabff02f58400d5510",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"products",
+								"60afcfaabff02f58400d5510"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "http://localhost:3001/api/users/registerUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"DanielZapata\",\r\n    \"username\": \"danielzb\",\r\n    \"password\": \"54321\",\r\n    \"phone\": \"23589640\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3002/api/users/registerUser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"users",
+						"registerUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3001/api/products/registerProduct",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFmY2UxYmJmZjAyZjU4NDAwZDU1MGUiLCJuYW1lIjoiRGFuaWVsWmFwYXRhIiwidXNlcm5hbWUiOiJkYW5pZWx6YiIsImlhdCI6MTYyMjEzNTEzMX0.SN7z-UD2rIBu3Q0QVhjdHM4VOCDVDdYwowSBrYYhBqY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Portatil lenovo\",\r\n    \"description\": \"portatil lenovo thinkpad\",\r\n    \"imgUrl\": \"url de la img para el producto\",\r\n    \"category\": \"tecnologia \",\r\n    \"valor\": 200\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3002/api/products/registerProduct",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"products",
+						"registerProduct"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
