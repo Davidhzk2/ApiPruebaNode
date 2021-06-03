@@ -4,6 +4,7 @@ const cors = require("cors");
 const { dbConnection } = require("./db/db");
 require("dotenv").config();
 
+const Role = require("./Routes/role"); 
 const User = require("./Routes/users");
 const Product = require("./Routes/products");
 const Auth = require("./Routes/auth");
@@ -15,6 +16,7 @@ app.use(express.json());
 app.use(cors());
 
 // modulos
+app.use("/api/role/", Role);
 app.use("/api/users/", User);
 app.use("/api/products/", Product);
 app.use("/api/auth/", Auth);

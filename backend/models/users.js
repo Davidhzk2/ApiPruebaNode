@@ -5,11 +5,13 @@ const jwt = require("jsonwebtoken");
 
 // crear esquema 
 const userSchema = new mongoose.Schema({
-    // propiedad y tipo 
+    // propiedad y tipo de dato
     name: String,
     username: String,
     password: String,
+    roleId: {type: mongoose.Schema.ObjectId, ref: "role"},
     phone: String,
+    status:Boolean,
     date: {type: Date, default: Date.now}
 });
 
@@ -20,6 +22,7 @@ userSchema.methods.generateJWT = function (){
         _id: this._id,
         name: this.name,
         username: this.username,
+        roleId: this.roleId,
         iat: moment().unix(),
     },process.env.SECRET_KEY_JWT
     );

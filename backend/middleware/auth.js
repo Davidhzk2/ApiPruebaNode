@@ -14,7 +14,7 @@ const auth = (req, res, next) =>{
     // validar nuestro token
     try {
         // revisar palabra secreta del payload
-        const payload = jwt.verify(jwtToken, "skjwt");
+        const payload = jwt.verify(jwtToken, process.env.SECRET_KEY_JWT);
         req.user = payload;
         next();
     } catch (error) {

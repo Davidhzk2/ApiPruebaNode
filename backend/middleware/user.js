@@ -1,8 +1,10 @@
-const mongoose = require("mongoose");
+const User = require("../models/users");
 
-
-const auth = (req, res, next) =>{
-    const user = await .User.findById(req.user._id);
-    if(!user)  let resultado = res.status(400).send("No se encontro el usuario en la db");
+const user = async (req, res, next) =>{
+    const user = await User.findById(req.user._id);
+    if(!user) 
+      res.status(400).send("No se encontro el usuario en la db");
     next();
-0}
+}
+
+module.exports = user;
