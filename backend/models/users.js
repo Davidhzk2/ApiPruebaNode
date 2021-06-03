@@ -21,8 +21,7 @@ userSchema.methods.generateJWT = function (){
         name: this.name,
         username: this.username,
         iat: moment().unix(),
-    },
-    "skjwt"
+    },process.env.SECRET_KEY_JWT
     );
 };
 

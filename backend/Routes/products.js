@@ -7,11 +7,14 @@ const User = require("../models/users");
 const Auth = require("../middleware/auth");
 
 
+
 // Registrar producto
 router.post("/registerProduct",Auth, async (req,res) => {
     // buscar el id del usuaurio
     let user  = await User.findById(req.user._id);
     // validar usuario
+    if(!user) return res.status(400).send("No se encontro el usuario en el bd");
+
     products = new Products({
         userId: user._id,
         name: req.body.name,
