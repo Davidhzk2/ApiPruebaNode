@@ -11,6 +11,8 @@ const UserAuth = require("../middleware/user");
 
 // Registrar producto
 router.post("/registerProduct",Auth, UserAuth, async (req,res) => {
+    if(!req.body.name || !req.body.description || !req.body.category || !req.body.valor)
+      return res.status(400).send("Process Failed: Incomplete data");
 
     products = new Products({
         userId: req.user._id,
@@ -37,11 +39,10 @@ router.get("/listProducts/", Auth,UserAuth, async (req,res)=>{
 
 // actualizar los productos
 router.put("/updateProduct/", Auth, UserAuth, async (req, res) =>{
-  
-
-    // buscar y capturar los datos 
+    if(!req.body._id ||!req.body.name || !req.body.description || !req.body.category || !req.body.valor)
+      return res.status(400).send("Process Failed: Incomplete data");
     const product = await Products.findByIdAndUpdate(req.body._id ,{
-        userId: user._id,
+        userId: req.user._id,
         name: req.body.name,
         description: req.body.description,
         category: req.body.category,
@@ -53,10 +54,23 @@ router.put("/updateProduct/", Auth, UserAuth, async (req, res) =>{
     return res.status(200).send({product});
 });
 
-
 // Eliminar producto 
+router.put("/deleteProduct/", Auth, UserAuth, async (req, res) =>{
+    if(!req.body._id ||!req.body.name || !req.body.description || !req.body.category || !req.body.valor)
+      return res.status(400).send("Process Failed: Incomplete data");
+    const product = await Products.findByIdAndUpdate(req.body._id ,{
+        userId: req.user._id,
+        name: req.body.name,
+        description: req.body.description,
+        category: req.body.category,
+        valor: req.body.valor,
+        status:false
+    });
+    // validar el producto
+    if(!product) return res.status(400).send("No se pudo editar el producto");
+    return res.status(200).send({product});
+});
 router.delete("/:_id", Auth,UserAuth, async (req, res) =>{
-
     // buscar y eliminar producto por id
     const product = await Products.findByIdAndDelete(req.params._id);
     // validar producto
