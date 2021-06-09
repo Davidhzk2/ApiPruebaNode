@@ -37,6 +37,13 @@ router.get("/listProducts/", Auth,UserAuth, async (req,res)=>{
     return res.status(200).send({products});
 });
 
+router.get("/allProducts",Auth, async(req, res) =>{
+    const products = await Products.find({status: true});
+    console.log(products.length);
+    if(products.length == 0) return res.send("There are not products to list");
+    return res.status(200).send({ products});
+});
+
 // actualizar los productos
 router.put("/updateProduct/", Auth, UserAuth, async (req, res) =>{
     if(!req.body._id ||!req.body.name || !req.body.description || !req.body.category || !req.body.valor)
