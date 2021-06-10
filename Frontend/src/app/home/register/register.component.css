@@ -1,0 +1,32 @@
+.container{
+    display: flex;
+    flex-direction: column;
+}
+.button{
+    width: 100%;
+}
+
+.card{
+    min-width:200PX;
+    max-width: 800px;
+    width: 100%;
+}
+
+.form{
+    padding: 30px;
+    display: flex;
+    justify-content:center ;
+    align-items: center;
+    width: 100%;
+}
+mat-card-title{
+    text-align: center;
+}
+.bg-btn{
+    background-color: green;
+    color: white;
+    font-weight: bold;
+}
+
+
+
