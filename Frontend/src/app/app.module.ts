@@ -17,6 +17,16 @@ import { TokenInterceptorService } from "./services/token-interceptor.service";
 import { ProductsService } from "./services/products.service";
 
 import { AuthGuard } from "./guard/auth.guard";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatButtonModule } from "@angular/material/button";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
+import { MatCardModule } from "@angular/material/card";
+import {MatIconModule} from "@angular/material/icon"
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 
 
 @NgModule({
@@ -33,7 +43,18 @@ import { AuthGuard } from "./guard/auth.guard";
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCardModule,
+    MatCardModule,
+    MatIconModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [AuthService, ProductsService, AuthGuard, TokenInterceptorService],
   bootstrap: [AppComponent]

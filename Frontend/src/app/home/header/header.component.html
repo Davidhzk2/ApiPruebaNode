@@ -1,7 +1,13 @@
-<p>header works!</p>
-<ul>
-    <a routerLink="registerProduct">Register Product</a>
-    <a routerLink="listProduct">Products</a>
-    <a routerLink="register">Sing in</a>
-    <a routerLink="login">Login</a>
-</ul>
+<mat-toolbar class="bgHeader">
+    <ul>
+        <a mat-button routerLink="#">Home</a>
+        <a mat-button routerLink="registerProduct">Register Product</a>
+        <a mat-button routerLink="listProduct">Products</a>
+    </ul>
+    <span class="headerSpacer"></span>
+    <ul>
+        <a mat-button routerLink="register">Sing in</a>
+        <a mat-button routerLink="login">Login</a>
+        <a mat-button routerLink="#">LogOut</a>
+    </ul>
+</mat-toolbar>

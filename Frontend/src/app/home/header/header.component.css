@@ -1,0 +1,7 @@
+.headerSpacer{
+    flex: 1 1 auto;  
+}
+.bgHeader{
+    background-color: blueviolet;
+    color: White;
+}
