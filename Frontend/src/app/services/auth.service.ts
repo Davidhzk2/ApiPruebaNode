@@ -10,10 +10,9 @@ export class AuthService {
 
   constructor(private http:HttpClient) {
     this.env = environment.APP_URL;
-
    }
 
    registerUser(user: any){
-     return this.http.post(this.env + 'user/registerUser', user);
+     return this.http.post(this.env + 'users/registerUser/', user);
    }
 }

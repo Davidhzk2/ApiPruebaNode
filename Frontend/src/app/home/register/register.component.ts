@@ -31,14 +31,14 @@ export class RegisterComponent implements OnInit {
         (res) =>{
           console.log(res);
           this.successMessage = 'Successfuly: Register user';
-          this.closeAlert();
           this.registerData = {}
+          this.closeAlert();
         }, 
         (err) =>{
           console.log(err);
           this.errorMessage = err.error;
-          this.closeAlert();
           this.registerData = {}
+          this.closeAlert();
         }
       );
     }

@@ -1,1 +1,47 @@
-<p>login works!</p>
+<div class="form">
+    <div class="container">
+        <mat-card class="card">
+            <mat-card-title>Login</mat-card-title>
+            <hr>
+            <div class="col-12 col-lg-12" *ngIf="successMessage">
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <div class="alert-message">
+                        {{successMessage}}
+                    </div>
+                    <span (click)="close()" class="close" data-dismiss="alert"><mat-icon>check</mat-icon></span>
+                </div>
+            </div>
+            <div class="col-12 col-lg-12" *ngIf="errorMessage">
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <div class="alert-message">
+                        {{errorMessage}}
+                    </div>
+                    <span (click)="close()" class="close" data-dismiss="alert"><mat-icon>close</mat-icon></span>
+                </div>
+            </div>
+            <mat-card-content>
+                <div class="container">
+                    <mat-form-field>
+                        <input [(ngModel)]=loginData.username matInput type="text" placeholder="Username" required/>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input [(ngModel)]=loginData.password matInput type="password" id="inpPass" placeholder="Password" required/>
+                    </mat-form-field>
+                </div>
+            </mat-card-content><hr>
+            <div class="others">
+                <span><a routerLink="/">Terminos y condiciones</a></span>
+            </div>
+            <mat-card-actions>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <a mat-raised-button color="warn" class="col col-lg-12" routerLink="/register">Sign in</a>
+                    </div>
+                    <div class="col-sm-6">
+                        <button mat-raised-button color="primary" class="col col-lg-12" (click)="login()">Login</button>
+                    </div>
+                </div>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>
