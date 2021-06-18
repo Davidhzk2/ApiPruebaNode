@@ -7,6 +7,8 @@ import { RegisterProductComponent } from "./product/register-product/register-pr
 import { ListProductComponent } from "./product/list-product/list-product.component";
 import { UpdateProductComponent } from "./product/update-product/update-product.component";
 
+import { AuthGuard } from "./guard/auth.guard";
+
 const routes: Routes = [
   {
     path:'',
@@ -23,15 +25,21 @@ const routes: Routes = [
   },
   {
     path: 'registerProduct',
-    component:  RegisterProductComponent
+    component:  RegisterProductComponent,
+    canActivate:[AuthGuard]
+
   },
   {
     path: 'listProduct',
-    component:  ListProductComponent
+    component:  ListProductComponent,
+    canActivate:[AuthGuard]
+
   },
   {
     path: 'updateProduct',
-    component:  UpdateProductComponent
+    component:  UpdateProductComponent,
+    canActivate:[AuthGuard]
+
   }
 ];
 

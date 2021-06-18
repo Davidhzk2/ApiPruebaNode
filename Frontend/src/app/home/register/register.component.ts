@@ -28,11 +28,11 @@ export class RegisterComponent implements OnInit {
         this.registerData = {}
     }else{
       this.auth.registerUser(this.registerData).subscribe(
-        (res) =>{
+        (res : any) =>{
           console.log(res);
-          this.successMessage = 'Successfuly: Register user';
+          localStorage.setItem('token', res.jwtToken);
           this.registerData = {}
-          this.closeAlert();
+          this.router.navigate(['/listProduct']);
         }, 
         (err) =>{
           console.log(err);

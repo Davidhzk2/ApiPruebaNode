@@ -6,11 +6,11 @@ const auth = (req, res, next) =>{
     // revisar header de autenticacion
     let jwtToken = req.header("Authorization");
     // validra si existe el token
-    if(!jwtToken) return res.status(400).send("Autorizacion Rechazada: no hay token");
+    if(!jwtToken) return res.status(400).send("Autorizacion Rechazada: no hay token!");
     // si existe el token lo separmos del Beare
     jwtToken = jwtToken.split(" ")[1];
     // validar token 
-    if(!jwtToken) return res.status(400).send("Autorizacion Rechazada: no hay token");
+    if(!jwtToken) return res.status(400).send("Autorizacion Rechazada: no hay token.");
     // validar nuestro token
     try {
         // revisar palabra secreta del payload

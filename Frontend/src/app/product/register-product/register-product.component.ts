@@ -28,6 +28,7 @@ export class RegisterProductComponent implements OnInit {
         this.product.registerProduct(this.productData).subscribe(
           (res:any)=>{
             console.log(res);
+            this.productData = '';
             this.router.navigate(['/listProduct']);
           },
           (err)=>{

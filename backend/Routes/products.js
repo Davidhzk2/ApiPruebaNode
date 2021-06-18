@@ -7,8 +7,6 @@ const User = require("../models/users");
 const Auth = require("../middleware/auth");
 const UserAuth = require("../middleware/user");
 
-
-
 // Registrar producto
 router.post("/registerProduct",Auth, UserAuth, async (req,res) => {
     if(!req.body.name || !req.body.description || !req.body.category || !req.body.valor)
