@@ -1,8 +1,7 @@
 // Importar los modulos 
 const jwt = require("jsonwebtoken");
-
 // Logica
-const auth = (req, res, next) =>{
+const auth = async (req, res, next) =>{
     // revisar header de autenticacion
     let jwtToken = req.header("Authorization");
     // validra si existe el token

@@ -15,4 +15,12 @@ export class ProductsService {
   registerProduct(product:any){
     return this.http.post(this.env + "products/registerProduct/", product);
   } 
+
+  listTask(){
+    return this.http.get(this.env + "products/listProducts/");
+  }
+
+  updateTask(product:any){
+    return this.http.put<any>(this.env + "product/updateTask", product);
+  }
 }

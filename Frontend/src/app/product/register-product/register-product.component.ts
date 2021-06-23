@@ -40,6 +40,9 @@ export class RegisterProductComponent implements OnInit {
         );
     }
   }
+
+  listProduct(){}
+  
   closeAlert(){
     setTimeout(() => {
       this.errorMessage = '';

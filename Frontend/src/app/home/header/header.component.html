@@ -1,13 +1,13 @@
 <mat-toolbar class="bgHeader">
     <ul>
-        <a mat-button routerLink="#">Home</a>
-        <a mat-button routerLink="registerProduct">Register Product</a>
-        <a mat-button routerLink="listProduct">Products</a>
+        <a *ngIf="auth.loggedIn()" mat-button routerLink="#">Home</a>
+        <a *ngIf="auth.loggedIn()" mat-button routerLink="registerProduct">Register Product</a>
+        <a *ngIf="auth.loggedIn()" mat-button routerLink="listProduct">Products</a>
     </ul>
     <span class="headerSpacer"></span>
     <ul>
-        <a mat-button routerLink="register">Sing in</a>
-        <a mat-button routerLink="login">Login</a>
-        <a mat-button routerLink="#">LogOut</a>
+        <a *ngIf="!auth.loggedIn()" mat-button routerLink="register">Sing in</a>
+        <a *ngIf="!auth.loggedIn()" mat-button routerLink="login">Login</a>
+        <a *ngIf="auth.loggedIn()" mat-button (click)="auth.logout()">LogOut</a>
     </ul>
 </mat-toolbar>
